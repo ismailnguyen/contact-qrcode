@@ -6,66 +6,107 @@ import { RouterLink, RouterView } from 'vue-router'
   <RouterView />
 </template>
 
-<style scoped>
-header {
+<style>
+/* Colors */
+/* Page */
+html {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  color: #444;
+  background: linear-gradient(60deg, #12131c, #383f5c);
+}
+
+body {
   line-height: 1.5;
-  max-height: 100vh;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
+hr {
   width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
+  margin: 1.5em 0;
   border: 0;
+  border-bottom: 1px dashed #ccc;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+.hr--invisible {
+  border-bottom-color: transparent;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+/* Boarding Pass */
+.boardingPass {
+  width: 400px;
+  box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+/* Section */
+/** Label **/
+.section-label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: #919191;
+}
 
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
+/** Icon **/
+.boardingPass-icon {
+  flex-grow: 0.5;
+  color: #f03f55;
+}
 
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+/* Header */
+.boardingPass-header {
+  padding: 0.5em 2em;
+  background: linear-gradient(60deg, #ea122d, #f46e7f);
+  border-radius: inherit;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  color: #fff;
+}
+
+.boardingPass-airline {
+  margin: 0;
+  font-style: italic;
+}
+
+/* Main */
+.boardingPass-main {
+  padding: 2em;
+  background: #fff;
+}
+
+.boardingPass-departur-IATA,
+.boardingPass-arrival-IATA {
+  display: inline-block;
+  line-height: 1;
+  font-size: 4rem;
+}
+
+.boardingPass-transport {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boardingPass-transport-icon {
+  transform: rotate(90deg);
+  color: #919191;
+  font-size: 36px;
+}
+
+/* Footer */
+.boardingPass-footer {
+  padding: 0 2em 2em;
+  background: #fff;
+  border-radius: inherit;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.boardingPass-qrCode {
+  width: 100%;
 }
 </style>

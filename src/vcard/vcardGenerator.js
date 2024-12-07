@@ -15,6 +15,7 @@ export function vcardGenerator({
   country,
   website,
   note,
+  imageUrl,
   version = '4.0',
 }) {
     const vcard = new vCardsJS();
@@ -36,6 +37,7 @@ export function vcardGenerator({
     vcard.url = website;
     vcard.note = note;
     vcard.version = version;
-
+    vcard.photo.embedFromString(imageUrl, 'image/png');
+ 
     return vcard.getFormattedString();
 }
