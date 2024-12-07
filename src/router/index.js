@@ -8,10 +8,8 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
-      props: { vcardFields: ['dd', 'Lastname', 'Email'] },
-    },
-    
-  ],
+    } 
+  ]
 })
 
 export default router

@@ -5,45 +5,71 @@ import VCard from '../VCard.vue'
 import VCardTextInput from '../VCardTextInput.vue'
 
 describe('VCard', () => {
-  it('should have as many vcard text inputs as passed in the props', () => {
-    const vcardFields = [
+  it('should display all vcard fields', () => {
+    const expectedvCardFields = [
         {
-            label: 'Firstname',
-            placeholder: 'Enter your firstname',
+          label: 'First Name',
+          placeholder: 'Mahatma',
         },
         {
-            label: 'Lastname',
-            placeholder: 'Enter your lastname',
+          label: 'Last Name',
+          placeholder: 'GANDHI',
         },
         {
-            label: 'Email',
-            placeholder: 'Enter your email',
+          label: 'Email',
+          placeholder: 'mahatma@gandhi.io',
+        },
+        {
+          label: 'Mobile phone',
+          placeholder: '+91 123 456 789',
+        },
+        {
+          label: 'Landline phone',
+          placeholder: '+91 123 456 789',
+        },
+        {
+          label: 'Company',
+          placeholder: 'Indian National Congress',
+        },
+        {
+          label: 'Job title',
+          placeholder: 'Leader'
+        },
+        {
+          label: 'Street',
+          placeholder: '30 Janpath',
+        },
+        {
+          label: 'City',
+          placeholder: 'New Delhi',
+        },
+        {
+          label: 'Zip code',
+          placeholder: '110011',
+        },
+        {
+          label: 'State',
+          placeholder: 'Delhi',
+        },
+        {
+          label: 'Country',
+          placeholder: 'India',
+        },
+        {
+          label: 'Website',
+          placeholder: 'www.gandhi.io',
+        },
+        {
+          label: 'Notes',
+          placeholder: 'Father of the Nation',
         }
     ]
-    const wrapper = mount(VCard, { props: { fields: vcardFields } })
-    expect(wrapper.findAllComponents(VCardTextInput).length).toBe(vcardFields.length)
-  })
-
-  it('should display all the vcard text inputs given in the props with correct label and placeholder', () => {
-    const vcardFields = [
-        {
-            label: 'Firstname',
-            placeholder: 'Enter your firstname',
-        },
-        {
-            label: 'Lastname',
-            placeholder: 'Enter your lastname',
-        },
-        {
-            label: 'Email',
-            placeholder: 'Enter your email',
-        }
-    ]
-    const wrapper = mount(VCard, { props: { fields: vcardFields } })
+    const wrapper = mount(VCard)
     const textInputs = wrapper.findAllComponents(VCardTextInput)
-    textInputs.forEach((textInput, index) => {
-      expect(textInput.props('label')).toBe(vcardFields[index].label)
-      expect(textInput.props('placeholder')).toBe(vcardFields[index].placeholder)
+
+    expectedvCardFields.forEach((expectedvCardField, index) => {
+      expect(textInputs[index].props('label')).toBe(expectedvCardField.label)
+      expect(textInputs[index].props('placeholder')).toBe(expectedvCardField.placeholder)
     })
   })
 })
