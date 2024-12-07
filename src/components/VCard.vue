@@ -1,73 +1,68 @@
 <script setup>
+    import VCardTextInput from './VCardTextInput.vue';
     import { ref } from 'vue';
+
     const fields = ref([
         {
-          label: 'First Name',
-          placeholder: 'Mahatma',
+        label: 'First Name',
+        placeholder: 'Mahatma',
         },
         {
-          label: 'Last Name',
-          placeholder: 'GANDHI',
+        label: 'Last Name',
+        placeholder: 'GANDHI',
         },
         {
-          label: 'Email',
-          placeholder: 'mahatma@gandhi.io',
+        label: 'Email',
+        placeholder: 'mahatma@gandhi.io',
         },
         {
-          label: 'Mobile phone',
-          placeholder: '+91 123 456 789',
+        label: 'Mobile phone',
+        placeholder: '+91 123 456 789',
         },
         {
-          label: 'Landline phone',
-          placeholder: '+91 123 456 789',
+        label: 'Landline phone',
+        placeholder: '+91 123 456 789',
         },
         {
-          label: 'Company',
-          placeholder: 'Indian National Congress',
+        label: 'Company',
+        placeholder: 'Indian National Congress',
         },
         {
-          label: 'Job title',
-          placeholder: 'Leader'
+        label: 'Job title',
+        placeholder: 'Leader'
         },
         {
-          label: 'Street',
-          placeholder: '30 Janpath',
+        label: 'Street',
+        placeholder: '30 Janpath',
         },
         {
-          label: 'City',
-          placeholder: 'New Delhi',
+        label: 'City',
+        placeholder: 'New Delhi',
         },
         {
-          label: 'Zip code',
-          placeholder: '110011',
+        label: 'Zip code',
+        placeholder: '110011',
         },
         {
-          label: 'State',
-          placeholder: 'Delhi',
+        label: 'State',
+        placeholder: 'Delhi',
         },
         {
-          label: 'Country',
-          placeholder: 'India',
+        label: 'Country',
+        placeholder: 'India',
         },
         {
-          label: 'Website',
-          placeholder: 'www.gandhi.io',
+        label: 'Website',
+        placeholder: 'www.gandhi.io',
         },
         {
-          label: 'Notes',
-          placeholder: 'Father of the Nation',
+        label: 'Notes',
+        placeholder: 'Father of the Nation',
         }
     ]);
-</script>
 
-<script>
-import VCardTextInput from './VCardTextInput.vue';
-
-export default {
-    components: {
-        VCardTextInput
-    }
-};
+    const generate = () => {
+    };
 </script>
 
 <template>
@@ -76,4 +71,6 @@ export default {
         :key="index"
         :label="field.label"
         :placeholder="field.placeholder" />
+
+    <button data-testid="generate-btn" type="submit" @click="generate()">Generate</button>
 </template>
