@@ -14,24 +14,28 @@ export function vcardGenerator({
   state,
   country,
   website,
+  note,
+  version = '4.0',
 }) {
-  const vcard = new vCardsJS();
+    const vcard = new vCardsJS();
 
-  vcard.firstName = firstName;
-  vcard.lastName = lastName;
-  vcard.email = email;
-  vcard.cellPhone = mobilePhone;
-  vcard.homePhone = landlinePhone;
-  vcard.organization = company;
-  vcard.title = jobTitle;
-  vcard.workAddress = {
+    vcard.firstName = firstName;
+    vcard.lastName = lastName;
+    vcard.email = email;
+    vcard.cellPhone = mobilePhone;
+    vcard.homePhone = landlinePhone;
+    vcard.organization = company;
+    vcard.title = jobTitle;
+    vcard.workAddress = {
     street: street,
     city: city,
     stateProvince: state,
     postalCode: zipCode,
     countryRegion: country,
-  };
-  vcard.url = website;
+    };
+    vcard.url = website;
+    vcard.note = note;
+    vcard.version = version;
 
-  return vcard.getFormattedString();
+    return vcard.getFormattedString();
 }

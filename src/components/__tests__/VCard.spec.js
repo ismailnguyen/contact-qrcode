@@ -2,7 +2,6 @@ import { describe, it, expect, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 
 import VCard from '../VCard.vue'
-import VCardTextInput from '../VCardTextInput.vue'
 
 describe('VCard', () => {
   it('should display all vcard fields', () => {
@@ -65,11 +64,10 @@ describe('VCard', () => {
         }
     ]
     const wrapper = mount(VCard)
-    const textInputs = wrapper.findAllComponents(VCardTextInput)
+    const textInputs = wrapper.findAll('[data-testid=input]')
 
     expectedvCardFields.forEach((expectedvCardField, index) => {
-      expect(textInputs[index].props('label')).toBe(expectedvCardField.label)
-      expect(textInputs[index].props('placeholder')).toBe(expectedvCardField.placeholder)
+      expect(textInputs[index].attributes('placeholder')).toBe(expectedvCardField.placeholder)
     })
   })
 
@@ -86,6 +84,35 @@ describe('VCard', () => {
     const submitButton = wrapper.find('button')
     await submitButton.trigger('click')
     
+    expect(generateSpy).toHaveBeenCalled()
+  })
+
+  it('should display a vcard when the submit button is clicked', async () => {
+    const wrapper = mount(VCard)
+
+    const submitButton = wrapper.find('[data-testid=generate-btn]')
+    await submitButton.trigger('click')
+
+    expect(wrapper.find('[data-testid=vcard]').text()).toContain('BEGIN:VCARD')
+  })
+
+  it('should display the qr code when the submit button is clicked', async () => {
+    const wrapper = mount(VCard)
+
+    const submitButton = wrapper.find('[data-testid=generate-btn]')
+    await submitButton.trigger('click')
+
+    expect(wrapper.find('[data-testid=qrcode]').find('img').exists()).toBe(true)
+  })
+
+  it('should call generate function when any input field is changed', async () => {
+    const wrapper = mount(VCard)
+
+    const generateSpy = vi.spyOn(wrapper.vm, 'generate')
+
+    const textInputs = wrapper.findAll('[data-testid=input]')
+    await textInputs[0].setValue('Mahatma')
+
     expect(generateSpy).toHaveBeenCalled()
   })
 })
