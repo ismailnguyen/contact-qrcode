@@ -1,9 +1,16 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+  import VCard from '../components/VCard.vue'
+
+  defineProps({
+    vcardFields: {
+      type: Array,
+      required: true
+    }
+  })
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <VCard :fields="vcardFields" />
   </main>
 </template>

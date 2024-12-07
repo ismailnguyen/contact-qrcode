@@ -6,6 +6,10 @@
         label: {
             type: String,
             required: true
+        },
+        placeholder: {
+            type: String,
+            default: ''
         }
     })
 
@@ -20,6 +24,6 @@
 <template>
     <div>
         <label>{{ label }}</label>
-        <input type="text" v-model="inputValue" />
+        <input type="text" :placeholder="placeholder" v-model="inputValue" />
     </div>
 </template>

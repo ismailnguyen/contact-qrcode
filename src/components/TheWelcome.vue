@@ -8,6 +8,7 @@ import SupportIcon from './icons/IconSupport.vue'
 </script>
 
 <template>
+
   <WelcomeItem>
     <template #icon>
       <DocumentationIcon />
@@ -40,7 +41,6 @@ import SupportIcon from './icons/IconSupport.vue'
 
     <br />
 
-    More instructions are available in <code>README.md</code>.
   </WelcomeItem>
 
   <WelcomeItem>

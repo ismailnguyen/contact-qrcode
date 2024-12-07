@@ -18,5 +18,9 @@ export default {
 </script>
 
 <template>
-    <VCardTextInput v-for="(field, index) in fields" :key="index" :label="field" />
+    <VCardTextInput
+        v-for="(field, index) in fields"
+        :key="index"
+        :label="field.label"
+        :placeholder="field.placeholder" />
 </template>

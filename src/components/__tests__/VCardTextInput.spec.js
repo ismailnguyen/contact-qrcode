@@ -9,6 +9,11 @@ describe('VCardTextInput', () => {
         expect(wrapper.text()).toContain('Name')
     })
 
+    it('should have a placeholder', () => {
+        const wrapper = mount(VCardTextInput, { props: { placeholder: 'Enter your name' } })
+        expect(wrapper.find('input').attributes('placeholder')).toBe('Enter your name')
+    })
+
     it('should have an text input field', () => {
         const wrapper = mount(VCardTextInput)
         expect(wrapper.find('input').exists()).toBe(true)
