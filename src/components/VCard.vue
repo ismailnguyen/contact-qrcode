@@ -132,8 +132,6 @@
             :placeholder="field.placeholder" />
     </div>
 
-    <button data-testid="generate-btn" type="submit" @click="generate()">Generate</button>
-
     <pre data-testid="vcard">{{ vcard }}</pre>
     <pre data-testid="qrcode" v-html="qrcodeImg"></pre>
 </template>
