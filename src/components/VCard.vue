@@ -1,16 +1,6 @@
 <script setup>
     import { vcardGenerator } from '../vcard/vcardGenerator'
     import qrcode from '../qrcode/qrcode'
-    import QRCodeStyling, {
-        DrawType,
-        TypeNumber,
-        Mode,
-        ErrorCorrectionLevel,
-        DotType,
-        CornerSquareType,
-        CornerDotType,
-        Extension
-        } from 'qr-code-styling';
 
     import { ref } from 'vue';
 
@@ -135,24 +125,6 @@
         qr.addData(vcard.value);
         qr.make();
         qrcodeImg.value = qr.createImgTag()
-
-        const qrCode = new QRCodeStyling({
-            width: 300,
-            height: 300,
-            data: vcard.value,
-            image: imageUrl.value,
-            dotsOptions: {
-                color: '#000000',
-                type: 'rounded'
-            },
-            backgroundOptions: {
-                color: '#ffffff',
-            },
-            imageOptions: {
-                crossOrigin: 'anonymous',
-                margin: 20,
-            }
-        });
     };
 </script>
 
@@ -187,7 +159,6 @@
             <div class="row">
                 <div class="boardingPass-qrCode col-xs">
                     <pre data-testid="vcard">{{ vcard }}</pre>
-                    <div id="qr-code" ref="qrCode"> </div>
                 </div>
             </div>
         </footer>
