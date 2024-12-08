@@ -20,7 +20,7 @@ describe('vcardGenerator', () => {
             website: 'www.gandhi.io'
         });
 
-        const expectedvCard = `BEGIN:VCARD\r\nVERSION:4.0\r\nFN:Mahatma GANDHI\r\nN:GANDHI;Mahatma;;;\r\nTEL;VALUE=uri;TYPE="voice,cell":tel:+91 123 456 789\r\nTEL;VALUE=uri;TYPE="voice,home":tel:+91 123 456 789\r\nADR;TYPE=WORK:;;30 Janpath;New Delhi;Delhi;110011;India\r\nTITLE:Leader\r\nORG:Indian National Congress\r\nURL:www.gandhi.io\r\nREV:${new Date().toISOString()}\r\nEND:VCARD\r\n`;
+        const expectedvCard = `BEGIN:VCARD\r\nVERSION:3.0\r\nFN;CHARSET=UTF-8:Mahatma GANDHI\r\nN;CHARSET=UTF-8:GANDHI;Mahatma;;;\r\nTEL;TYPE=CELL:+91 123 456 789\r\nTEL;TYPE=HOME,VOICE:+91 123 456 789\r\nADR;CHARSET=UTF-8;TYPE=WORK:;;30 Janpath;New Delhi;Delhi;110011;India\r\nTITLE;CHARSET=UTF-8:Leader\r\nORG;CHARSET=UTF-8:Indian National Congress\r\nURL;CHARSET=UTF-8:www.gandhi.io\r\nREV:${new Date().toISOString()}\r\nEND:VCARD\r\n`;
 
         expect(actualvCard).toEqual(expectedvCard);
     })

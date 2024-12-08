@@ -16,7 +16,7 @@ export function vcardGenerator({
   website,
   note,
   imageUrl,
-  version = '4.0',
+  version = '3.0',
 }) {
     const vcard = new vCardsJS();
 
